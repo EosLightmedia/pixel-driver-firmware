@@ -1,0 +1,18 @@
+{
+    "deploy": [
+        "../deploy.md"
+    ],
+    "docs": "",
+    "features": [
+        "Dual-core",
+        "External Flash",
+        "USB",
+        "RGB LED"
+    ],
+    "images": [""],
+    "mcu": "rp2040",
+    "product": "EPD",
+    "thumbnail": "",
+    "url": "",
+    "vendor": "Eos Lightmedia"
+}
