@@ -102,6 +102,10 @@ def get_version_info_from_mpconfig(repo_path):
 def make_version_header(repo_path, filename):
     git_tag = None
     git_hash = None
+    
+    # Eos-offline git_tag
+    git_tag = "- Eos Labs"
+    
     if "MICROPY_GIT_TAG" in os.environ:
         git_tag = os.environ["MICROPY_GIT_TAG"]
         git_hash = os.environ.get("MICROPY_GIT_HASH")

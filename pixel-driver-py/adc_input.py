@@ -1,4 +1,5 @@
-from machine import Pin, ADC
+from machine import Pin
+from machine import ADC
 
 class AdcInput:
     def __init__(self, pin: Pin):
