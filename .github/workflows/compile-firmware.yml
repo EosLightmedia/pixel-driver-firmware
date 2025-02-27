@@ -30,11 +30,6 @@ jobs:
             git \
             pkg-config
 
-      - name: Show workspace structure
-        run: |
-          pwd
-          ls -R
-
       - name: Remove old modules
         working-directory: pixel-driver-firmware
         run: rm -rf ports/rp2/modules
@@ -49,31 +44,16 @@ jobs:
           chmod +x build_epd_firmware.sh
           chmod +x update_ulab.sh
 
-      - name: Show workspace structure
-        run: |
-          pwd
-          ls -R
-
       - name: Update ulab
         run: |
           cd pixel-driver-firmware
           ./update_ulab.sh
-          
-      - name: Debug find ulab.h.txt
-        run: find . -name "ulab.h.txt"
 
       - name: Replace ulab.h
         run: |
-          mv ulab.h.txt ulab/code || true
-        
+          cd pixel-driver-firmware
           rm -f ulab/code/ulab.h
-        
-          mv ulab/code/ulab.h.txt ulab/code/ulab.h
-
-      - name: Show workspace structure
-        run: |
-          pwd
-          ls -R
+          mv ulab.h.txt ulab/code/ulab.h
           
       - name: Build mpy-cross
         run: |
