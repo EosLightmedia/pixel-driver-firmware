@@ -1,0 +1,73 @@
+name: Compile Eos Pixel Driver Firmware
+on:
+  push:
+    branches:
+      - main
+jobs:
+  compile-firmware:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout pixel-driver-firmwar
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - name: Checkout CNDL modules
+        uses: actions/checkout@v4
+        with:
+          repository: EosLightmedia/CNDL
+          path: cndl
+          token: ${{ secrets.GH_PAT }}
+
+      - name: Set up dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            cmake \
+            build-essential \
+            libffi-dev \
+            git \
+            pkg-config
+
+      - name: Remove old modules
+        run: rm -rf ./pixel-driver-firmware/ports/rp2/modules
+
+      - name: Move new modules
+        run: mv cndl/modules ./pixel-driver-firmware/ports/rp2/
+
+      - name: Make scripts executable
+        run: |
+          cd pixel-driver-firmware
+          chmod +x cross_compile.sh
+          chmod +x build_epd_firmware.sh
+          chmod +x update_ulab.sh
+
+      - name: Update ulab
+        run: |
+          cd pixel-driver-firmware
+          ./update_ulab.sh
+
+      - name: Replace ulab.h
+        run: |
+          mv ulab.h.txt ulab/code || true
+        
+          rm -f ulab/code/ulab.h
+        
+          mv ulab/code/ulab.h.txt ulab/code/ulab.h
+          
+      - name: Build mpy-cross
+        run: |
+          cd pixel-driver-firmware
+          ./cross_compile.sh
+          
+      - name: Build Pixel Driver Firmware
+        run: |
+          cd pixel-driver-firmware
+          ./build_epd_firmware.sh
+          
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: epd-firmware
+          path: |
+            pixel-driver-firmware/ports/rp2/build-EOS_PIXEL_DRIVER/firmware.uf2
