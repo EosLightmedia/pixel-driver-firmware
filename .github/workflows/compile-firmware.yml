@@ -7,9 +7,10 @@ jobs:
   compile-firmware:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout pixel-driver-firmwar
+      - name: Checkout pixel-driver-firmware
         uses: actions/checkout@v4
         with:
+          path: pixel-driver-firmware
           submodules: true
 
       - name: Checkout CNDL modules
@@ -29,11 +30,17 @@ jobs:
             git \
             pkg-config
 
+      - name: Show workspace structure
+        run: |
+          pwd
+          ls -R
+
       - name: Remove old modules
-        run: rm -rf ./pixel-driver-firmware/ports/rp2/modules
+        working-directory: pixel-driver-firmware
+        run: rm -rf ports/rp2/modules
 
       - name: Move new modules
-        run: mv cndl/modules ./pixel-driver-firmware/ports/rp2/
+        run: mv cndl/modules pixel-driver-firmware/ports/rp2/
 
       - name: Make scripts executable
         run: |
@@ -41,6 +48,11 @@ jobs:
           chmod +x cross_compile.sh
           chmod +x build_epd_firmware.sh
           chmod +x update_ulab.sh
+
+      - name: Show workspace structure
+        run: |
+          pwd
+          ls -R
 
       - name: Update ulab
         run: |
@@ -54,6 +66,11 @@ jobs:
           rm -f ulab/code/ulab.h
         
           mv ulab/code/ulab.h.txt ulab/code/ulab.h
+
+      - name: Show workspace structure
+        run: |
+          pwd
+          ls -R
           
       - name: Build mpy-cross
         run: |
