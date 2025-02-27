@@ -17,7 +17,7 @@ jobs:
         with:
           repository: EosLightmedia/CNDL
           path: cndl
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_PAT }}
 
       - name: Set up dependencies
         run: |
