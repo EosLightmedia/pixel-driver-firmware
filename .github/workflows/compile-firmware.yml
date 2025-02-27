@@ -58,6 +58,9 @@ jobs:
         run: |
           cd pixel-driver-firmware
           ./update_ulab.sh
+          
+      - name: Debug find ulab.h.txt
+        run: find . -name "ulab.h.txt"
 
       - name: Replace ulab.h
         run: |
