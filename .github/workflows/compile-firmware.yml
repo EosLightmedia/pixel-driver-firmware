@@ -28,7 +28,8 @@ jobs:
             build-essential \
             libffi-dev \
             git \
-            pkg-config
+            pkg-config \
+            gcc-arm-none-eabi
 
       - name: Remove old modules
         working-directory: pixel-driver-firmware
