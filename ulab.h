@@ -33,7 +33,7 @@
 
 // Adds support for complex ndarrays
 #ifndef ULAB_SUPPORTS_COMPLEX
-#define ULAB_SUPPORTS_COMPLEX               (1)
+#define ULAB_SUPPORTS_COMPLEX               (0)
 #endif
 
 // Determines, whether scipy is defined in ulab. The sub-modules and functions
@@ -45,7 +45,7 @@
 // The maximum number of dimensions the firmware should be able to support
 // Possible values lie between 1, and 4, inclusive
 #ifndef ULAB_MAX_DIMS
-#define ULAB_MAX_DIMS                       4
+#define ULAB_MAX_DIMS                       3
 #endif
 
 // By setting this constant to 1, iteration over array dimensions will be implemented
@@ -179,23 +179,23 @@
 
 // bitwise operators
 #ifndef ULAB_NUMPY_HAS_BITWISE_AND
-#define ULAB_NUMPY_HAS_BITWISE_AND          (1)
+#define ULAB_NUMPY_HAS_BITWISE_AND          (0)
 #endif
 
 #ifndef ULAB_NUMPY_HAS_BITWISE_OR
-#define ULAB_NUMPY_HAS_BITWISE_OR           (1)
+#define ULAB_NUMPY_HAS_BITWISE_OR           (0)
 #endif
 
 #ifndef ULAB_NUMPY_HAS_BITWISE_XOR
-#define ULAB_NUMPY_HAS_BITWISE_XOR          (1)
+#define ULAB_NUMPY_HAS_BITWISE_XOR          (0)
 #endif
 
 #ifndef ULAB_NUMPY_HAS_LEFT_SHIFT
-#define ULAB_NUMPY_HAS_LEFT_SHIFT           (1)
+#define ULAB_NUMPY_HAS_LEFT_SHIFT           (0)
 #endif
 
 #ifndef ULAB_NUMPY_HAS_RIGHT_SHIFT
-#define ULAB_NUMPY_HAS_RIGHT_SHIFT          (1)
+#define ULAB_NUMPY_HAS_RIGHT_SHIFT          (0)
 #endif
 
 // the ndarray unary operators
@@ -226,7 +226,7 @@
 
 // determines, which ndarray methods are available
 #ifndef NDARRAY_HAS_BYTESWAP
-#define NDARRAY_HAS_BYTESWAP            (1)
+#define NDARRAY_HAS_BYTESWAP            (0)
 #endif
 
 #ifndef NDARRAY_HAS_COPY
@@ -258,7 +258,7 @@
 #endif
 
 #ifndef NDARRAY_HAS_SORT
-#define NDARRAY_HAS_SORT                (1)
+#define NDARRAY_HAS_SORT                (0)
 #endif
 
 #ifndef NDARRAY_HAS_STRIDES
@@ -306,7 +306,7 @@
 
 // determines, whether the ndinfo function is available
 #ifndef ULAB_NUMPY_HAS_NDINFO
-#define ULAB_NUMPY_HAS_NDINFO           (0)
+#define ULAB_NUMPY_HAS_NDINFO           (1)
 #endif
 
 // if this constant is set to 1, the interpreter can iterate
@@ -322,7 +322,7 @@
 
 // functions that create an array
 #ifndef ULAB_NUMPY_HAS_ARANGE
-#define ULAB_NUMPY_HAS_ARANGE           (1)
+#define ULAB_NUMPY_HAS_ARANGE           (0)
 #endif
 
 #ifndef ULAB_NUMPY_HAS_CONCATENATE
@@ -462,7 +462,7 @@
 // Note that in this case, the input also must be numpythonic,
 // i.e., the real an imaginary parts cannot be passed as two arguments
 #ifndef ULAB_FFT_IS_NUMPY_COMPATIBLE
-#define ULAB_FFT_IS_NUMPY_COMPATIBLE    (1)
+#define ULAB_FFT_IS_NUMPY_COMPATIBLE    (0)
 #endif
 
 #ifndef ULAB_FFT_HAS_FFT
@@ -702,17 +702,17 @@
 #endif
 
 #ifndef ULAB_NUMPY_HAS_VECTORIZE
-#define ULAB_NUMPY_HAS_VECTORIZE        (1)
+#define ULAB_NUMPY_HAS_VECTORIZE        (0)
 #endif
 
 // Complex functions. The implementations are compiled into
 // the firmware, only if ULAB_SUPPORTS_COMPLEX is set to 1
 #ifndef ULAB_NUMPY_HAS_CONJUGATE
-#define ULAB_NUMPY_HAS_CONJUGATE        (1)
+#define ULAB_NUMPY_HAS_CONJUGATE        (0)
 #endif
 
 #ifndef ULAB_NUMPY_HAS_IMAG
-#define ULAB_NUMPY_HAS_IMAG             (1)
+#define ULAB_NUMPY_HAS_IMAG             (0)
 #endif
 
 #ifndef ULAB_NUMPY_HAS_REAL
@@ -720,7 +720,7 @@
 #endif
 
 #ifndef ULAB_NUMPY_HAS_SORT_COMPLEX
-#define ULAB_NUMPY_HAS_SORT_COMPLEX     (1)
+#define ULAB_NUMPY_HAS_SORT_COMPLEX     (0)
 #endif
 
 // random module
@@ -804,27 +804,27 @@
 
 // functions of the utils module
 #ifndef ULAB_HAS_UTILS_MODULE
-#define ULAB_HAS_UTILS_MODULE               (1)
+#define ULAB_HAS_UTILS_MODULE               (0)
 #endif
 
 #ifndef ULAB_UTILS_HAS_FROM_INT16_BUFFER
-#define ULAB_UTILS_HAS_FROM_INT16_BUFFER    (1)
+#define ULAB_UTILS_HAS_FROM_INT16_BUFFER    (0)
 #endif
 
 #ifndef ULAB_UTILS_HAS_FROM_UINT16_BUFFER
-#define ULAB_UTILS_HAS_FROM_UINT16_BUFFER   (1)
+#define ULAB_UTILS_HAS_FROM_UINT16_BUFFER   (0)
 #endif
 
 #ifndef ULAB_UTILS_HAS_FROM_INT32_BUFFER
-#define ULAB_UTILS_HAS_FROM_INT32_BUFFER    (1)
+#define ULAB_UTILS_HAS_FROM_INT32_BUFFER    (0)
 #endif
 
 #ifndef ULAB_UTILS_HAS_FROM_UINT32_BUFFER
-#define ULAB_UTILS_HAS_FROM_UINT32_BUFFER   (1)
+#define ULAB_UTILS_HAS_FROM_UINT32_BUFFER   (0)
 #endif
 
 #ifndef ULAB_UTILS_HAS_SPECTROGRAM
-#define ULAB_UTILS_HAS_SPECTROGRAM          (1)
+#define ULAB_UTILS_HAS_SPECTROGRAM          (0)
 #endif
 
 // user-defined module; source of the module and
