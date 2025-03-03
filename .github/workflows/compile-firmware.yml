@@ -54,7 +54,7 @@ jobs:
         run: |
           cd pixel-driver-firmware
           rm -f ulab/code/ulab.h
-          mv ulab.h.txt ulab/code/ulab.h
+          mv ulab.h ulab/code/ulab.h
           
       - name: Build mpy-cross
         run: |
