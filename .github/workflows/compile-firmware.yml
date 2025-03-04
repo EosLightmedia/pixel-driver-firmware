@@ -31,10 +31,6 @@ jobs:
             pkg-config \
             gcc-arm-none-eabi
 
-      - name: Initialize submodules
-        working-directory: pixel-driver-firmware
-        run: git submodule update --init --recursive
-
       - name: Remove old modules
         working-directory: pixel-driver-firmware
         run: rm -rf ports/rp2/modules
